@@ -1,4 +1,6 @@
-# ProximityIsolationForest
+# Proximity Isolation Forest
+
+Proximity Isolation Forest (ProxIF) is an outlier detector which input are pairwise distances.
 
 To see how the methodology works, run the example in main.m. Please add the ProxIF_Code folder to your MATLAB path before you do.
 
