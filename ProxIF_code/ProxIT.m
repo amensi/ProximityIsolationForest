@@ -43,7 +43,7 @@ N=length(tree.idx);
 tree.nsamples=N;
 
 %Checking whether the current node is a leaf or not
-% #Lines 47-53 implement Lines 5-7 of Algorithm 3#
+% #Lines 47-53 implement Lines 5-7 of Algorithm 1#
 if N==1 || tree.height>=param.max_depth || length(unique(train(tree.idx,tree.idx)))==1
     tree.left=[]; tree.right=[]; tree.imp=[];
     if param.thr %Needed to set the fields according to whether the criterion is 1P or 2P
@@ -54,7 +54,7 @@ if N==1 || tree.height>=param.max_depth || length(unique(train(tree.idx,tree.idx
 else %Node is not a leaf. 
     %Defining the test of the current node and getting the indexes of its
     %children. 
-    % #Lines 58-69 implement Lines 9-14 of Algorithm 3#
+    % #Lines 58-69 implement Lines 9-14 of Algorithm 1#
     if param.thr %Chosen learning strategy is 1P
         [tree.proto,tree.thr,tr_left,tr_right,tree.imp]=OnePLearning(train,tree,param); 
     else %Chosen learning strategy is 2P
@@ -70,7 +70,7 @@ else %Node is not a leaf.
     else
         %Setting fields of the left and right child node + recursive calls
         %to ProxIT
-        % #Lines 74-79 implement Lines 15-20 of Algorithm 3#
+        % #Lines 74-79 implement Lines 15-20 of Algorithm 1#
         tree.left.height=tree.height+1;
         tree.left.idx=tree.idx(tr_left);
         tree.left=ProxIT(train,tree.left,param);
