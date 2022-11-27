@@ -7,6 +7,6 @@ Prerequisites to run the example in main.m:
 -download distools, prdisdata from http://prtools.tudelft.nl/Guide/37Pages/distools.html
 -download prtools5 from http://prtools.tudelft.nl/Guide/37Pages/software.html.
 
-Within the code you will find references to pseudocodes (Line # Algorithm X) present in the Supplementary Material of a soon-to-be published manuscript.
+Within the code you will find references to pseudocodes (Line X Algorithm Y) presented in the Supplementary Material of a soon-to-be published manuscript.
 
 If you use the methodology, please cite A. Mensi, M. Bicego, D. M. J. Tax, "Proximity Isolation Forests", 2020 25th International Conference on Pattern Recognition (ICPR), 2021.
