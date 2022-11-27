@@ -13,7 +13,7 @@ nIt=10;
 inl=0; outl=1;
 
 %Adding the paths
-addpath(genpath('./ProxIF/'));
+addpath(genpath('./ProxIF_code/'));
 addpath(genpath('./prdisdata/')); addpath(genpath('./distools/')); addpath(genpath('./prtools/'));
 
 %Loading the dataset
