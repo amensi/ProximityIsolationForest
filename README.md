@@ -2,10 +2,7 @@
 
 Proximity Isolation Forest (ProxIF) is an outlier detector which input are pairwise distances.
 
-Prerequisites to run the example in main.m:
--add the ProxIF_Code folder to your MATLAB path
--download distools, prdisdata from http://prtools.tudelft.nl/Guide/37Pages/distools.html
--download prtools5 from http://prtools.tudelft.nl/Guide/37Pages/software.html.
+The example in main.m outputs the average AUC for the Zongker dataset; the used parametrization corresponds to the one named 'ProxIF-F' in the paper, i.e. the resulting AUC is that of Table 6.
 
 Within the code you will find references to pseudocodes (Line X Algorithm Y) presented in the Supplementary Material of a soon-to-be published manuscript.
 
