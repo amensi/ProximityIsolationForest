@@ -15,7 +15,7 @@ elseif ~isequal(class(param.T),'double')
     error("T should be a number!");
 end
 
-%The if loop below implements Line 6 of Algorithm 4
+%The following IF statement implements Line 6 of Algorithm 4
 if ~isfield(param,'S')
     param.S=min(256,N);
 elseif ~isequal(class(param.S),'double')

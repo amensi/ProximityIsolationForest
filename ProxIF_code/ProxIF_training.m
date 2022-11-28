@@ -41,11 +41,11 @@ end
 
 %Checking correctness of forest parameters (and eventually setting them)
 N=size(train,1); % #Line 5 of Algorithm 4#
-param=setProxIFParameters(param,N); % #Within this function the check at Line 6 of Algorithm 4 is made, among other checks#
+param=setProxIFParameters(param,N); % #This function also makes the check of Line 6 of Algorithm 4#
 
 %Training
 tree=cell(1,param.T);
-% #For loop implements Lines 7-14 of Algorithm 4#
+% #FOR loop below implements Lines 7-14 of Algorithm 4#
 for t=1:param.T
     tree{t}.height=0; 
     if param.S~=N

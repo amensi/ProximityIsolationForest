@@ -18,7 +18,7 @@ function [proto_best,thr_best,tr_left,tr_right,I]=OnePLearning(train,tree,param)
 N=tree.nsamples;
 proto_best=[]; thr_best=[]; tr_left=[]; tr_right=[]; I=[];
 
-% #Lines 23-33 implement Lines 5-9 of Algorithm 2#
+% #The first branch of the following IF statement implements Lines 5-9 of Algorithm 2#
 if strcmpi(param.crit,'R-1P') %Random criterion
     proto_best=tree.idx(randperm(N,1));
     range=sort(train(tree.idx,proto_best),'ascend');
@@ -31,10 +31,10 @@ if strcmpi(param.crit,'R-1P') %Random criterion
         end
     end
 
-    % #Lines 35-77 implement Lines 10-24 of Algorithm 2#
+% #The second branch of the IF statement implements Lines 10-24 of Algorithm 2#
 else %Optimized criterion
     %Choosing the tests to evaluate among all possible tests. This is not needed if criterion is R-1P.
-    % #Lines 38-43 implement Lines 11-12 of Algorithm 2#
+    % #The IF statement below implements Lines 11-12 of Algorithm 2#
     maxComp=(N*N-N); %Do not divide by two in order to manage unsymmetric matrices.
     if param.max_comp>maxComp
         mComp=maxComp;
@@ -42,7 +42,7 @@ else %Optimized criterion
         mComp=param.max_comp;
     end
 
-    % #Lines 46-51 implement Lines 13-14 of Algorithm 2#
+    % #The block of code below implements Lines 13-14 of Algorithm 2#
     [P1,P2]=ndgrid(1:N);
     protosIdx=[P1(:) P2(:)];
     protosIdx(protosIdx(:,1)==protosIdx(:,2),:)=[];
@@ -51,11 +51,11 @@ else %Optimized criterion
     thrs=tree.idx(protosIdx(:,2));
 
     %Test Evaluation
-    % #Lines 55-76 implement Lines 15-24 of Algorithm 2#
+    % #The FOR loop below implements Lines 15-24 of Algorithm 2#
     I=-Inf;
     for pp=1:length(protos)
         %Creation of the putative child nodes
-        % #Lines 59-67 implement Lines 17-18 of Algorithm 2#
+        % #The following block of code implements Lines 17-18 of Algorithm 2#
         if  size(unique(train(tree.idx,protos(pp)),'rows'),1)==1
             continue
         end
@@ -65,9 +65,10 @@ else %Optimized criterion
         if isempty(trleft) || isempty(trright)
             continue
         end
+
         %Function that evaluates the created children according to param.criterion
         I_tmp=EvaluateTest(train,tree,trleft,trright,param); % #Implements Lines 19-21 of Algorithm 2#
-        % #Lines 70-74 Implement Lines 22-24 of Algorithm 2#
+        % #IF statement below implements Lines 22-24 of Algorithm 2#
         if I_tmp>I %The impurity of the test under evaluation is better than the current best one.
             I=I_tmp;
             tr_left=trleft; tr_right=trright;
