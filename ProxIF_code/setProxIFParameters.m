@@ -1,5 +1,5 @@
 function param = setProxIFParameters(param,N)
-% Proximity Isolation Forest, v1.0, 2022
+% Proximity Isolation Forest, v2.0, 2023
 % (c) A. Mensi
 %
 % param = setProxIFParameters(param,N) checks and sets the parameters of
@@ -17,7 +17,7 @@ end
 
 %The following IF statement implements Line 6 of Algorithm 4
 if ~isfield(param,'S')
-    param.S=min(256,N);
+    param.S=min(128,N);
 elseif ~isequal(class(param.S),'double')
     error("S should be a number!");
 end
