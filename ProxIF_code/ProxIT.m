@@ -44,7 +44,7 @@ tree.nsamples=N;
 
 %Checking whether the current node is a leaf or not
 % #First branch of IF statement implements Lines 5-7 of Algorithm 1#
-if N==1 || tree.height>=param.max_depth || length(unique(train(tree.idx,tree.idx),'rows'))==1
+if N==1 || tree.height>=param.max_depth || size(unique(train(tree.idx,tree.idx),'rows'),1)==1
     tree.left=[]; tree.right=[]; tree.imp=[];
     if param.thr %Needed to set the fields according to whether the criterion is 1P or 2P
         tree.proto=[]; tree.thr=[];
